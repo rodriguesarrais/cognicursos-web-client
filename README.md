@@ -2,4 +2,16 @@
 
 # TO-DO
 
-* identidade visual e paleta de cores
+# para baixar as dependencias utilize o comando :
+
+ npm i
+
+# para iniciar o projeto utilize :
+
+ npm run dev
+
+# dependencias do packjson:
+
+react :18.0.0
+
+next : 14.2.24
