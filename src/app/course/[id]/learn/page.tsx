@@ -1,5 +1,6 @@
 "use client"
 
+import ReactPlayer from "react-player";
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -66,7 +67,7 @@ const currentLecture = {
   title: "How the Web Works",
   description:
     "In this lecture, we'll explore the fundamental concepts of how the web works. You'll learn about HTTP, servers, clients, and the request-response cycle.",
-  videoUrl: "https://example.com/video.mp4",
+  videoUrl: "https://www.youtube.com/watch?v=tuVa27WISyo",
 }
 
 export default function CourseLearnPage({ params }: { params: { id: string } }) {
@@ -164,26 +165,30 @@ export default function CourseLearnPage({ params }: { params: { id: string } }) 
 
         {/* Main content area */}
         <main className="flex-1 flex flex-col overflow-hidden">
-          {/* Video player */}
+
+          {/* Video player youtube - PROVISORIO DELETAR DEPOIS*/}
           <div className="relative bg-black aspect-video w-full max-h-[60vh]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Button size="lg" className="rounded-full w-16 h-16">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-8 w-8"
-                >
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-              </Button>
-            </div>
+            <ReactPlayer
+              url={currentLecture.videoUrl}
+              controls
+              width="100%"
+              height="100%"
+            />
           </div>
 
+          {/* Video player - ESSE É PRA SER USADO */}
+          {/*
+          <div className="relative bg-black aspect-video w-full max-h-[60vh]">
+            <video
+              controls
+              className="w-full h-full"
+              src={currentLecture.videoUrl}
+              poster="/placeholder.svg" // Opcional: imagem de pré-visualização
+            >
+              Seu navegador não suporta a reprodução de vídeos.
+            </video>
+          </div>
+          */}
           {/* Lecture content and AI chat */}
           <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
             <div className="flex-1 overflow-auto">
