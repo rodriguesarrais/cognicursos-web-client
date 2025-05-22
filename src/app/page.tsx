@@ -1,33 +1,29 @@
-import { auth0 } from "@/lib/auth0";
-import './globals.css';
+"use client";
 
-export default async function Home() {
-  // Fetch the user session
-  const session = await auth0.getSession();
+import PagOff from "@/components/PagOff";
+import PagOn from "@/components/PagOn";
+import { useUser } from "@auth0/nextjs-auth0";
+import { useEffect, useState } from "react";
 
-  // If no session, show sign-up and login buttons
-  if (!session) {
+export default function HomePage() {
+  const { user, isLoading } = useUser();
+  const [currentPage, setCurrentPage] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Quando o estado de autenticação for carregado, defina a página atual
+    if (!isLoading) {
+      setCurrentPage(user ? "online" : "offline");
+    }
+  }, [user, isLoading]);
+
+  if (isLoading) {
     return (
-      <main>
-        <a href="/auth/login?screen_hint=signup">
-          <button>Sign up</button>
-        </a>
-        <a href="/auth/login">
-          <button>Log in</button>
-        </a>
-      </main>
+      <div className="flex w-full items-center justify-center px-10 py-20">
+        <div className="text-gray-500">Carregando...</div>
+      </div>
     );
   }
 
-  // If session exists, show a welcome message and logout button
-  return (
-    <main>
-      <h1>Welcome, {session.user.name}!</h1>
-      <p>
-        <a href="/auth/logout">
-          <button>Log out</button>
-        </a>
-      </p>
-    </main>
-  );
+  // Renderize a página apropriada com base no estado de autenticação
+  return currentPage === "online" ? <PagOn user={user} /> : <PagOff />;
 }
