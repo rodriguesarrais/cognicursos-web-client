@@ -25,5 +25,5 @@ export default function HomePage() {
   }
 
   // Renderize a página apropriada com base no estado de autenticação
-  return currentPage === "online" ? <PagOn user={user} /> : <PagOff />;
+  return currentPage === "online" ? <PagOn /> : <PagOff />;
 }
