@@ -85,7 +85,7 @@ export default function PagOff() {
                 />
                 <div className="hidden lg:flex items-center gap-8">
                   <a
-                    href="#"
+                    href="/dashboard"
                     className="text-gray-600 hover:text-indigo-600 transition-colors"
                   >
                     Cursos
@@ -169,7 +169,7 @@ export default function PagOff() {
               </div>
               <div className="flex flex-col gap-4">
                 <a
-                  href="#"
+                  href="/dashboard"
                   className="text-gray-600 hover:text-indigo-600 py-2"
                 >
                   Cursos

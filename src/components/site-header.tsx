@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,10 +8,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Search, Bell } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { SidebarTrigger } from "@/components/ui/sidebar"
+} from "@/components/ui/dropdown-menu";
+import { Search, Bell } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export function SiteHeader() {
   return (
@@ -19,13 +19,17 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center px-4">
         <SidebarTrigger className="mr-2 md:hidden" />
         <div className="flex items-center gap-2 font-bold text-xl mr-4">
-          <Link href="/dashboard" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-1">
             <span className="text-primary">CogniCursos</span>
           </Link>
         </div>
         <div className="relative hidden md:flex items-center w-full max-w-sm mr-4">
           <Search className="absolute left-2.5 h-4 w-4 text-muted-foreground" />
-          <Input type="search" placeholder="Buscar cursos..." className="w-full pl-8 rounded-md" />
+          <Input
+            type="search"
+            placeholder="Buscar cursos..."
+            className="w-full pl-8 rounded-md"
+          />
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
@@ -36,9 +40,15 @@ export function SiteHeader() {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                <Button
+                  variant="ghost"
+                  className="relative h-8 w-8 rounded-full"
+                >
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Usuário" />
+                    <AvatarImage
+                      src="/placeholder.svg?height=32&width=32"
+                      alt="Usuário"
+                    />
                     <AvatarFallback>CF</AvatarFallback>
                   </Avatar>
                 </Button>
@@ -46,8 +56,12 @@ export function SiteHeader() {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">Carlos Fulano</p>
-                    <p className="text-xs leading-none text-muted-foreground">carlos.fulano@example.com</p>
+                    <p className="text-sm font-medium leading-none">
+                      Carlos Fulano
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      carlos.fulano@example.com
+                    </p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
@@ -66,6 +80,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }
-

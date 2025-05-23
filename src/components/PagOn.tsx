@@ -24,31 +24,10 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 
-// interface NavOnProps {
-//     user?: useUser
-//   }
 export default function PagOn() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  //   const renderMobileUserAvatar = () => {
-  //     if (user && user.picture) {
-  //       return (
-  //         <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
-  //           <img
-  //             src={user.picture  "/placeholder.svg"}
-  //             alt={user.name  "Usuário"}
-  //             className="w-full h-full object-cover"
-  //           />
-  //         </div>
-  //       )
-  //     } else {
-  //       return (
-  //         <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-  //           <User className="w-5 h-5 text-gray-500" />
-  //         </div>
-  //       )
-  //     }
-  //   }
+
   const categories = [
     {
       icon: <Code className="h-6 w-6" />,
@@ -112,7 +91,7 @@ export default function PagOn() {
                 />
                 <div className="hidden lg:flex items-center gap-8">
                   <a
-                    href="#"
+                    href="/dashboard"
                     className="text-gray-600 hover:text-indigo-600 transition-colors"
                   >
                     Cursos
@@ -187,10 +166,7 @@ export default function PagOn() {
                 <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
               </div>
               <div className="flex flex-col gap-4">
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-indigo-600 py-2"
-                >
+                <a href="dashboard" className="text-gray-600 hover:text-indigo-600 py-2">
                   Cursos
                 </a>
                 <a
